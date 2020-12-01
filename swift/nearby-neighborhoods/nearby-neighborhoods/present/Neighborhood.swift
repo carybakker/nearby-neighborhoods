@@ -19,8 +19,9 @@ public class Neighborhood {
 }
 
 extension Neighborhood : Hashable {
-  public var hashValue: Int {
-    return name.hashValue &* location.hashValue
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(name)
+    hasher.combine(location)
   }
   
   public static func == (lhs: Neighborhood, rhs: Neighborhood) -> Bool {

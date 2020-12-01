@@ -37,8 +37,9 @@ extension FloatingPoint {
 }
 
 extension Location: Hashable {
-  public var hashValue: Int {
-    return latitude.hashValue &* longitude.hashValue
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(latitude)
+    hasher.combine(longitude)
   }
   
   public static func == (lhs: Location, rhs: Location) -> Bool {
