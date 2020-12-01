@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import simd
 
 public class Counter {
   private var queue = DispatchQueue(label: "counter queue")

@@ -48,6 +48,8 @@ class SearchTest : XCTestCase {
   override func setUp() {
     super.setUp()
     Location.distanceComputations.reset()
+    
+//    Location.dumpDistances()
   }
     
   override func tearDown() {

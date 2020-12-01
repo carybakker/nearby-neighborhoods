@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,8 @@
 		43B3216D1F6AC97600BABF8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B3216C1F6AC97600BABF8F /* Utils.swift */; };
 		43B3216E1F6AD2A200BABF8F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B3216C1F6AC97600BABF8F /* Utils.swift */; };
 		43B321701F6AD36A00BABF8F /* SearchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B3216F1F6AD36A00BABF8F /* SearchTest.swift */; };
+		AE1938DA2576B74B009CD22C /* KDTree in Frameworks */ = {isa = PBXBuildFile; productRef = AE1938D92576B74B009CD22C /* KDTree */; };
+		AE1938DE2576B93B009CD22C /* IndexedNeighborhoods.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1938DD2576B93B009CD22C /* IndexedNeighborhoods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,7 @@
 		4399B9241F6AC43700CFA452 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		43B3216C1F6AC97600BABF8F /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		43B3216F1F6AD36A00BABF8F /* SearchTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; name = SearchTest.swift; path = "nearby-neighborhoodsTests/SearchTest.swift"; sourceTree = SOURCE_ROOT; tabWidth = 2; };
+		AE1938DD2576B93B009CD22C /* IndexedNeighborhoods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedNeighborhoods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE1938DA2576B74B009CD22C /* KDTree in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +126,7 @@
 				4399B9231F6AC43700CFA452 /* Neighborhoods.swift */,
 				4399B9241F6AC43700CFA452 /* Search.swift */,
 				43B3216C1F6AC97600BABF8F /* Utils.swift */,
+				AE1938DD2576B93B009CD22C /* IndexedNeighborhoods.swift */,
 			);
 			indentWidth = 2;
 			path = present;
@@ -154,6 +159,9 @@
 			dependencies = (
 			);
 			name = "nearby-neighborhoods";
+			packageProductDependencies = (
+				AE1938D92576B74B009CD22C /* KDTree */,
+			);
 			productName = "nearby-neighborhoods";
 			productReference = 4399B8EA1F6AC26A00CFA452 /* nearby-neighborhoods.app */;
 			productType = "com.apple.product-type.application";
@@ -210,6 +218,9 @@
 				Base,
 			);
 			mainGroup = 4399B8E11F6AC26A00CFA452;
+			packageReferences = (
+				AE1938D82576B74B009CD22C /* XCRemoteSwiftPackageReference "KDTree" */,
+			);
 			productRefGroup = 4399B8EB1F6AC26A00CFA452 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -247,6 +258,7 @@
 			files = (
 				4399B8F01F6AC26A00CFA452 /* ViewController.swift in Sources */,
 				4399B9261F6AC43700CFA452 /* Neighborhood.swift in Sources */,
+				AE1938DE2576B93B009CD22C /* IndexedNeighborhoods.swift in Sources */,
 				4399B8EE1F6AC26A00CFA452 /* AppDelegate.swift in Sources */,
 				43B3216D1F6AC97600BABF8F /* Utils.swift in Sources */,
 				4399B9271F6AC43700CFA452 /* Neighborhoods.swift in Sources */,
@@ -407,8 +419,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -420,7 +434,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y54NU3QY7N;
 				INFOPLIST_FILE = "nearby-neighborhoods/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.present.nearby-neighborhoods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -433,7 +450,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y54NU3QY7N;
 				INFOPLIST_FILE = "nearby-neighborhoods/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.present.nearby-neighborhoods";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -447,7 +467,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = V48WJRB536;
 				INFOPLIST_FILE = "nearby-neighborhoodsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.present.nearby-neighborhoodsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -463,7 +487,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = V48WJRB536;
 				INFOPLIST_FILE = "nearby-neighborhoodsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.present.nearby-neighborhoodsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -503,6 +531,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AE1938D82576B74B009CD22C /* XCRemoteSwiftPackageReference "KDTree" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Bersaelor/KDTree";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AE1938D92576B74B009CD22C /* KDTree */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE1938D82576B74B009CD22C /* XCRemoteSwiftPackageReference "KDTree" */;
+			productName = KDTree;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4399B8E21F6AC26A00CFA452 /* Project object */;
 }
